@@ -18,7 +18,7 @@ void stack_push(Stack *s, const int value) {
     printf("Error: Stack Overflow \n");
     return;
   }
-  s->items[++s->top] = value;
+  s->data[++s->top] = value;
 }
 
 int stack_pop(Stack *s) {
@@ -26,7 +26,7 @@ int stack_pop(Stack *s) {
     printf("Stack Error: Empty\n");
     return -1;
   }
-  return s->items[s->top--];
+  return s->data[s->top--];
 }
 
 int stack_peek(const Stack *s) {
@@ -34,5 +34,5 @@ int stack_peek(const Stack *s) {
     printf("Stack Error: Empty\n");
     return -1;
   }
-  return s->items[s->top];
+  return s->data[s->top];
 }

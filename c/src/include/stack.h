@@ -3,7 +3,7 @@
 #define MAX_STACK_SIZE 100000
 
 typedef struct {
-  int items[MAX_STACK_SIZE];
+  int data[MAX_STACK_SIZE];
   int top;
 } Stack;
 

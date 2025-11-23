@@ -9,7 +9,7 @@
  *
  * 주어진 크기(size)로 IntArray 구조체를 생성하고 초기화합니다.
  */
-IntArray *array_create(int size) {
+IntArray *array_create(const int size) {
   // 배열 생성 함수
   // 크기가 0 이하거나 음수인 배열은 생성할 수 없음
   if (size <= 0) return NULL;
@@ -47,7 +47,7 @@ IntArray *array_create(int size) {
  *
  * 주어진 인덱스에 값을 설정합니다. 인덱스가 유효하지 않으면 오류 메시지를 출력합니다.
  */
-void array_set(IntArray *arr, int index, int value) {
+void array_set(const IntArray *arr, const int index, const int value) {
   if (arr != NULL && index >= 0 && index < arr->size) {
     arr->data[index] = value;
   } else {
@@ -63,7 +63,7 @@ void array_set(IntArray *arr, int index, int value) {
  *
  * 주어진 인덱스에 해당하는 값을 가져옵니다. 인덱스가 유효하지 않으면 오류 메시지를 출력합니다.
  */
-int array_get(IntArray *arr, int index) {
+int array_get(const IntArray *arr, const int index) {
   // 배열 포인터가 할당되어 있고, 인덱스가 0이상의 정수이고, 배열 크기보다 작을 경우
   if (arr != NULL && index >= 0 && index < arr->size) {
     // 해당 인덱스의 값을 반환

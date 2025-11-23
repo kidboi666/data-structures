@@ -8,4 +8,6 @@ add_executable(c main.c
         src/stack.c
         src/include/stack.h
         src/include/array.h
+        src/include/queue.h
+        src/queue.c
 )
