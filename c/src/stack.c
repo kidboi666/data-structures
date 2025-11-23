@@ -1,8 +1,24 @@
 #include <stdio.h>
 #include "include/stack.h"
 
-void stack_init(Stack *s) {
+#include <stdlib.h>
+
+Stack *stack_create(const int size) {
+  if (size <= 0) return NULL;
+
+  Stack *s = malloc(sizeof(Stack));
+  if (s == NULL) return NULL;
+
+  s->data = (int *) malloc(sizeof(int) * size);
+  if (s->data == NULL) {
+    free(s);
+    return NULL;
+  }
+
+  s->size = size;
   s->top = -1;
+
+  return s;
 }
 
 int stack_is_empty(const Stack *s) {
@@ -10,11 +26,11 @@ int stack_is_empty(const Stack *s) {
 }
 
 int stack_is_full(const Stack *s) {
-  return s->top == MAX_STACK_SIZE - 1;
+  return s->top == s->size - 1;
 }
 
 void stack_push(Stack *s, const int value) {
-  if (s->top >= MAX_STACK_SIZE - 1) {
+  if (stack_is_full(s)) {
     printf("Error: Stack Overflow \n");
     return;
   }
