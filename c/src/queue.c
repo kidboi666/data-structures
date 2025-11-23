@@ -30,7 +30,7 @@ int queue_is_empty(const Queue *q) {
   return q->count == 0;
 }
 
-void enqueue(Queue *q, const int item) {
+void queue_add(Queue *q, const int item) {
   if (queue_is_full(q)) {
     printf("Queue Error: Full\n");
     return;
@@ -42,7 +42,7 @@ void enqueue(Queue *q, const int item) {
   q->count++;
 }
 
-int dequeue(Queue *q) {
+int queue_remove(Queue *q) {
   if (queue_is_empty(q)) {
     printf("Queue Error: Empty\n");
     return -1;
