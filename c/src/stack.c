@@ -1,62 +1,38 @@
 #include <stdio.h>
-#include <string.h>
+#include "include/stack.h"
 
-#define MAX_SIZE 100
-#define IS_NUMBER(symbol) symbol != '+' && symbol != '-' && symbol != '/' && symbol != '*'
+void stack_init(Stack *s) {
+  s->top = -1;
+}
 
-int stack[MAX_SIZE];
-int top = -1;
+int stack_is_empty(const Stack *s) {
+  return s->top == -1;
+}
 
+int stack_is_full(const Stack *s) {
+  return s->top == MAX_STACK_SIZE - 1;
+}
 
-void push(const int data) {
-  if (top >= MAX_SIZE - 1) {
+void stack_push(Stack *s, const int value) {
+  if (s->top >= MAX_STACK_SIZE - 1) {
     printf("Error: Stack Overflow \n");
     return;
   }
-  stack[++top] = data;
+  s->items[++s->top] = value;
 }
 
-int pop() {
-  if (top == -1) {
-    printf("Error: Stack is Empty \n");
+int stack_pop(Stack *s) {
+  if (stack_is_empty(s)) {
+    printf("Stack Error: Empty\n");
     return -1;
   }
-  return stack[top--];
+  return s->items[s->top--];
 }
 
-int peek() {
-  if (top == -1) {
-    printf("Error: Stack is Empty \n");
+int stack_peek(const Stack *s) {
+  if (stack_is_empty(s)) {
+    printf("Stack Error: Empty\n");
     return -1;
   }
-  return stack[top];
-}
-
-int evalPostfix(const char *exp) {
-  int oper1, oper2, value, i = 0;
-  int length = strlen(exp);
-  char symbol;
-  top = -1;
-  for (i = 0; i < length; i++) {
-    symbol = exp[i];
-    if (IS_NUMBER(symbol)) {
-      value = symbol - '0';
-      push(value);
-    } else {
-      oper2 = pop();
-      oper1 = pop();
-      switch (symbol) {
-        case '+': push(oper1 + oper2);
-          break;
-        case '-': push(oper1 - oper2);
-          break;
-        case '*': push(oper1 * oper2);
-          break;
-        case '/': push(oper1 / oper2);
-          break;
-        default: ;
-      }
-    }
-  }
-  return pop();
+  return s->items[s->top];
 }
