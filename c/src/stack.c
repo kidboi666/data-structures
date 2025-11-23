@@ -1,6 +1,5 @@
-#include <stdio.h>
 #include "include/stack.h"
-
+#include <stdio.h>
 #include <stdlib.h>
 
 Stack *stack_create(const int size) {
@@ -51,4 +50,11 @@ int stack_peek(const Stack *s) {
     return -1;
   }
   return s->data[s->top];
+}
+
+void stack_destroy(Stack *s) {
+  if (s != NULL) {
+    free(s->data);
+    free(s);
+  }
 }

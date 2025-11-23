@@ -1,5 +1,5 @@
-#ifndef C_ARRAY_H
-#define C_ARRAY_H
+#ifndef ARRAY_H
+#define ARRAY_H
 
 typedef struct {
   int *data;
@@ -11,4 +11,4 @@ void array_set(const IntArray *arr, int index, int value);
 int array_get(const IntArray *arr, int index);
 void array_destroy(IntArray *arr);
 
-#endif //C_ARRAY_H
+#endif //ARRAY_H

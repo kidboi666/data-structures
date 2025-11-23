@@ -1,5 +1,5 @@
-#ifndef C_STACK_H
-#define C_STACK_H
+#ifndef STACK_H
+#define STACK_H
 
 typedef struct {
   int *data;
@@ -13,5 +13,6 @@ int stack_is_full(const Stack *s);
 void stack_push(Stack *s, int value);
 int stack_pop(Stack *s);
 int stack_peek(const Stack *s);
+void stack_destroy(Stack *s);
 
-#endif //C_STACK_H
+#endif //STACK_H

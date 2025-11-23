@@ -1,5 +1,5 @@
-#ifndef C_QUEUE_H
-#define C_QUEUE_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 typedef struct {
   int *data;
@@ -17,4 +17,4 @@ int dequeue(Queue *q);
 int queue_peek(const Queue *q);
 void queue_destroy(Queue *q);
 
-#endif //C_QUEUE_H
+#endif //QUEUE_H
