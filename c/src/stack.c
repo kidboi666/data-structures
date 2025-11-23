@@ -7,13 +7,6 @@
 int stack[MAX_SIZE];
 int top = -1;
 
-int pop() {
-  if (top == -1) {
-    printf("Error: Stack is Empty \n");
-    return -1;
-  }
-  return stack[top--];
-}
 
 void push(const int data) {
   if (top >= MAX_SIZE - 1) {
@@ -23,6 +16,14 @@ void push(const int data) {
   stack[++top] = data;
 }
 
+int pop() {
+  if (top == -1) {
+    printf("Error: Stack is Empty \n");
+    return -1;
+  }
+  return stack[top--];
+}
+
 int peek() {
   if (top == -1) {
     printf("Error: Stack is Empty \n");
@@ -30,7 +31,6 @@ int peek() {
   }
   return stack[top];
 }
-
 
 int evalPostfix(const char *exp) {
   int oper1, oper2, value, i = 0;

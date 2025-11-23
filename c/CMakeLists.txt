@@ -6,4 +6,6 @@ set(CMAKE_C_STANDARD 11)
 add_executable(c main.c
         src/array.c
         src/stack.c
+        src/include/stack.h
+        src/include/array.h
 )
