@@ -10,4 +10,8 @@ add_executable(c main.c
         src/include/array.h
         src/include/queue.h
         src/queue.c
+        src/include/singly_list.h
+        src/singly_list.c
+        src/include/circular_list.h
+        src/circular_list.c
 )

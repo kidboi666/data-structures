@@ -2,13 +2,9 @@
   "name": "javascript",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "typescript": "^5.5.3"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true
 }
