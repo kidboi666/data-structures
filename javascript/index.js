@@ -1,1 +1,5 @@
-export {Queue} from 'src/queue';
+const Queue = require('./src/Queue');
+
+module.exports = {
+  Queue
+};

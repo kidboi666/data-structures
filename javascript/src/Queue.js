@@ -1,4 +1,4 @@
-export class Queue {
+class Queue {
   constructor(size) {
     this.data = {};
     this.size = size;
@@ -27,6 +27,13 @@ export class Queue {
     return item;
   }
 
+  peek() {
+    if (this.isEmpty()) {
+      throw Error('Queue is empty');
+    }
+    return this.data[this.front];
+  }
+
   isEmpty() {
     return this.count === 0;
   }
@@ -35,3 +42,5 @@ export class Queue {
     return this.count === this.size;
   }
 }
+
+module.exports = Queue;
