@@ -14,4 +14,6 @@ add_executable(c main.c
         src/singly_list.c
         src/include/circular_list.h
         src/circular_list.c
+        src/include/binary_tree.h
+        src/binary_tree.c
 )
